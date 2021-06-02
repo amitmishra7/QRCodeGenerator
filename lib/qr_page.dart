@@ -89,7 +89,7 @@ class _QRCodePageState extends State<QRCodePage> {
                 style: ElevatedButton.styleFrom(primary: Colors.green),
                 child: Text('Share QR Code'),
                 onPressed: () {
-                  _shareQRCode();
+                  _qrCodeToImage();
                 },
               ),
             ),
@@ -120,7 +120,7 @@ class _QRCodePageState extends State<QRCodePage> {
     );
   }
 
-  void _shareQRCode() async {
+  void _qrCodeToImage() async {
     try {
       RenderRepaintBoundary boundary =
           _globalKey.currentContext.findRenderObject();
@@ -128,14 +128,14 @@ class _QRCodePageState extends State<QRCodePage> {
       ByteData byteData =
           await image.toByteData(format: ui.ImageByteFormat.png);
       var pngBytes = byteData.buffer.asUint8List();
-      _shareImage(pngBytes);
+      _shareQRCodeImage(pngBytes);
       setState(() {});
     } catch (e) {
       print(e);
     }
   }
 
-  Future<void> _shareImage(Uint8List bytes) async {
+  Future<void> _shareQRCodeImage(Uint8List bytes) async {
     try {
       await Share.file('Share Via', 'QRCode.png', bytes, 'image/png',
           text: 'QR Code');
