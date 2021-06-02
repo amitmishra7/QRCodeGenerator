@@ -149,8 +149,6 @@ And its done. Thats all for the basic demo of a qr code generator app. You will 
 
 ## Step 7 : Sharing the QR Code
 
-```dart
-
 Now for saving the image to `ByteData` and sharing it we are using the `esys_esys_flutter_share`. First it will convert the widget into a `ByteData`. Then that ByteData is converted into `Unit8List` and later these bytes are shared into .png format. Lets dive into it.
 
 ```dart
