@@ -147,7 +147,7 @@ return Padding(
 
 And its done. Thats all for the basic demo of a qr code generator app. You will now be able to create a QR Code from the input in text field. But as you know we will be adding some flavors to our app lets keep going with the flow.
 
-## Step 7 : Sharing the QR Code
+## Step 6 : Sharing the QR Code
 
 Now for saving the image to `ByteData` and sharing it we are using the `esys_esys_flutter_share`. First it will convert the widget into a `ByteData`. Then that ByteData is converted into `Unit8List` and later these bytes are shared into .png format. Lets dive into it.
 
